@@ -78,6 +78,12 @@ st.markdown(f"""
     }}
     section[data-testid="stSidebar"] {{ background:{DARK}; }}
     section[data-testid="stSidebar"] * {{ color:#eafff2 !important; }}
+    /* القائمة المنسدلة لاختيار الحساب: خلفية بيضاء ونص أسود */
+    section[data-testid="stSidebar"] div[data-baseweb="select"] * {{ color:#0E2A1F !important; }}
+    section[data-testid="stSidebar"] div[data-baseweb="select"] > div {{ background:#ffffff !important; }}
+    /* قائمة الخيارات المنسدلة (الأسماء) نص أسود */
+    div[data-baseweb="popover"] li {{ color:#0E2A1F !important; }}
+    div[data-baseweb="popover"] * {{ color:#0E2A1F !important; }}
     .stButton>button {{
         background:{PRIMARY}; color:#fff; border-radius:12px; border:none;
         padding:10px 22px; font-weight:700; font-family:'Tajawal';
@@ -215,8 +221,9 @@ with tab1:
                     marker_color="#bcd9c7")
         fig.add_scatter(x=user["label"], y=user["smoothed"], name="الراتب الاصطناعي",
                         mode="lines+markers", line=dict(color=PRIMARY,width=4))
-        fig.update_layout(height=340, margin=dict(t=30,b=0,l=0,r=0),
+        fig.update_layout(height=340, margin=dict(t=30,b=70,l=10,r=10),
                           legend=dict(orientation="h"), plot_bgcolor="white",
+                          xaxis=dict(tickangle=-45),
                           font=dict(family="Tajawal"))
         st.plotly_chart(fig, use_container_width=True)
 
@@ -287,8 +294,9 @@ with tab2:
     u["label"] = u["Month"].map(MONTH_NAMES)+" "+u["Year"].astype(str).str[-2:]
     colors = [DRY_RED if x=="Yes" else "#bcd9c7" for x in u["Dry_Month_Label"]]
     figd = go.Figure(go.Bar(x=u["label"], y=u["Income"], marker_color=colors))
-    figd.update_layout(height=300, margin=dict(t=10,b=0), plot_bgcolor="white",
+    figd.update_layout(height=340, margin=dict(t=50,b=80,l=10,r=10), plot_bgcolor="white",
                        font=dict(family="Tajawal"),
+                       xaxis=dict(tickangle=-45),
                        title="🔴 أحمر = شهر جفاف   |   🟢 أخضر = شهر عادي")
     st.plotly_chart(figd, use_container_width=True)
 
