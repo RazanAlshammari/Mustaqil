@@ -2,7 +2,7 @@
 """
 مستقل | Mustaqil — الرفيق المالي الذكي للفريلانسر السعودي
 هاكاثون أمد — مصرف الإنماء × أكاديمية طويق
-
+"""
 
 import streamlit as st
 import pandas as pd
