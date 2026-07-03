@@ -3,11 +3,6 @@
 مستقل | Mustaqil — الرفيق المالي الذكي للفريلانسر السعودي
 هاكاثون أمد — مصرف الإنماء × أكاديمية طويق
 
-طريقة التشغيل:
-    1) pip install streamlit pandas numpy scikit-learn plotly openpyxl
-    2) ضع هذا الملف بجانب ملف البيانات mustaqil_dataset.xlsx
-    3) في الترمنال:  streamlit run app.py
-"""
 
 import streamlit as st
 import pandas as pd
